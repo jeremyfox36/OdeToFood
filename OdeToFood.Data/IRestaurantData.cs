@@ -12,6 +12,7 @@ namespace OdeToFood.Data
         Restaurant GetById(int id);
         Restaurant Update(Restaurant updatedRestaurant);
         int Commit();
+        Restaurant Add(Restaurant newRestaurant);
     }
 
     public class InMemoryRestaurantData : IRestaurantData
@@ -56,6 +57,14 @@ namespace OdeToFood.Data
         public int Commit()
         {
             return 0;
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            
+            restaurants.Add(newRestaurant);
+            newRestaurant.Id = restaurants.Max(r => r.Id) + 1;
+            return newRestaurant;
         }
     }
 
