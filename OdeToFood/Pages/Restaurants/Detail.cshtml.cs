@@ -27,6 +27,7 @@ namespace OdeToFood.Pages.Restaurants
             {
                 return RedirectToPage("./NotFound");
             }
+            
             return Page();
         }
     }
